@@ -116,6 +116,7 @@ create table [office].[Attendance]
 (
 	EmpId int not null constraint fk_office_Attendance_EmpId foreign key (EmpId) references [Office].[Employees] (EmpId),
 	WDate date not null,
+	DayType varchar(1) not null check(DayType in ('W','H','O','A')), -- [W]orking [H]oliday Weekly [O]ff [A]bsent
 	ArivalDateTime DateTime not null,
 	DepartureDateTime DateTime not null,
 	WorkingHRS decimal(5,2) not null,
